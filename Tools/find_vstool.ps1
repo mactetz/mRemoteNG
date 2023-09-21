@@ -44,6 +44,8 @@ function ToolCanBeExecuted {
 $rootSearchPaths = @(
     [System.IO.Directory]::EnumerateFileSystemEntries("C:\Program Files", "*Visual Studio*", [System.IO.SearchOption]::TopDirectoryOnly),
     [System.IO.Directory]::EnumerateFileSystemEntries("C:\Program Files (x86)", "*Visual Studio*", [System.IO.SearchOption]::TopDirectoryOnly)
+    [System.IO.Directory]::EnumerateFileSystemEntries("D:\Program Files", "*Visual Studio*", [System.IO.SearchOption]::TopDirectoryOnly),
+    [System.IO.Directory]::EnumerateFileSystemEntries("D:\Program Files (x86)", "*Visual Studio*", [System.IO.SearchOption]::TopDirectoryOnly)
 )
 
 # Returns the first full path to the $FileName that our search can find
