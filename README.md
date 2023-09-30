@@ -91,6 +91,16 @@ You will need to compile it yourself using Visual Studio.
 * [Microsoft .NET 6.0 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/6.0)
 * Microsoft Terminal Service Client 6.0 or later
   * Needed if you use RDP. mstscax.dll and/or msrdp.ocx be registered.
+  
+### Build/Development
+
+* [Microsoft Visual Studio 2022] (https://visualstudio.microsoft.com/downloads/)
+* [Wix v3 - Visual Studio 2022 Extension]
+  from Visual Studio extension
+  or (https://marketplace.visualstudio.com/items?itemName=WixToolset.WixToolsetVisualStudio2022Extension)
+* powershell v5.1
+* [WiX Toolset v3.11.x] (https://wixtoolset.org/releases/v3.11/stable)
+* Note: add ConsoleControl and ConsoleControlAPI as dll compiles from source in version 1.5.0 for dot net 6 compatibility
 
 ### Download
 
