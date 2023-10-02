@@ -53,6 +53,7 @@ namespace mRemoteNG.UI.Controls
         private ToolStripSeparator _toolStripSeparator1;
         private ToolStripMenuItem _cMenTreeImportFile;
         private ToolStripMenuItem _cMenTreeImportFromRemoteDesktopManager;
+        private ToolStripMenuItem _cMenTreeImportFromRemoteDesktopConnectionManager;
         private ToolStripMenuItem _cMenTreeImportActiveDirectory;
         private ToolStripMenuItem _cMenTreeImportPortScan;
         private ToolStripMenuItem _cMenTreeApplyInheritanceToChildren;
@@ -102,6 +103,7 @@ namespace mRemoteNG.UI.Controls
             _cMenTreeImport = new ToolStripMenuItem();
             _cMenTreeImportFile = new ToolStripMenuItem();
             _cMenTreeImportFromRemoteDesktopManager = new ToolStripMenuItem();
+            _cMenTreeImportFromRemoteDesktopConnectionManager = new ToolStripMenuItem();
             _cMenTreeImportActiveDirectory = new ToolStripMenuItem();
             _cMenTreeImportPortScan = new ToolStripMenuItem();
             _cMenInheritanceSubMenu = new ToolStripMenuItem();
@@ -302,6 +304,7 @@ namespace mRemoteNG.UI.Controls
             {
                 _cMenTreeImportFile,
                 _cMenTreeImportFromRemoteDesktopManager,
+                _cMenTreeImportFromRemoteDesktopConnectionManager,
                 _cMenTreeImportActiveDirectory,
                 _cMenTreeImportPortScan
             });
@@ -321,6 +324,13 @@ namespace mRemoteNG.UI.Controls
             _cMenTreeImportFromRemoteDesktopManager.Size = new System.Drawing.Size(226, 22);
             _cMenTreeImportFromRemoteDesktopManager.Text = "Import from &Remote Desktop Manager";
             _cMenTreeImportFromRemoteDesktopManager.Click += OnImportRemoteDesktopManagerClicked;
+            //
+            // cMenTreeImportFromRemoteDesktopConnectionManager
+            //
+            _cMenTreeImportFromRemoteDesktopConnectionManager.Name = "_cMenTreeImportFromRemoteDesktopConnectionManager";
+            _cMenTreeImportFromRemoteDesktopConnectionManager.Size = new System.Drawing.Size(226, 22);
+            _cMenTreeImportFromRemoteDesktopConnectionManager.Text = "Import from &Remote Desktop Connection Manager";
+            _cMenTreeImportFromRemoteDesktopConnectionManager.Click += OnImportRemoteDesktopConnectionManagerClicked;
             //
             // cMenTreeImportActiveDirectory
             //
@@ -464,6 +474,7 @@ namespace mRemoteNG.UI.Controls
             _cMenTreeImportActiveDirectory.Text = Language.ImportAD;
             _cMenTreeImportPortScan.Text = Language.ImportPortScan;
             _cMenTreeImportFromRemoteDesktopManager.Text = Language.ImportFromRemoteDesktopManager;
+            _cMenTreeImportFromRemoteDesktopConnectionManager.Text = Language.ImportFromRemoteDesktopConnectionManager;
             _cMenTreeExportFile.Text = Language._ExportToFile;
 
             _cMenTreeAddConnection.Text = Language.NewConnection;
@@ -874,6 +885,17 @@ namespace mRemoteNG.UI.Controls
                 selectedNodeAsContainer =
                     _connectionTree.SelectedNode as ContainerInfo ?? _connectionTree.SelectedNode.Parent;
             Import.ImportFromRemoteDesktopManagerCsv(selectedNodeAsContainer);
+        }
+
+        private void OnImportRemoteDesktopConnectionManagerClicked(object sender, EventArgs e)
+        {
+            ContainerInfo selectedNodeAsContainer;
+            if (_connectionTree.SelectedNode == null)
+                selectedNodeAsContainer = Runtime.ConnectionsService.ConnectionTreeModel.RootNodes.First();
+            else
+                selectedNodeAsContainer =
+                    _connectionTree.SelectedNode as ContainerInfo ?? _connectionTree.SelectedNode.Parent;
+            Import.ImportFromRemoteDesktopConnectionManager(selectedNodeAsContainer);
         }
 
         private void OnImportActiveDirectoryClicked(object sender, EventArgs e)

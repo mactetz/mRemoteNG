@@ -2034,4 +2034,10 @@ Nightly umfasst Alphas, Betas und Release Candidates.</value>
   <data name="ImportFromRemoteDesktopManager" xml:space="preserve">
     <value>Von Remote Desktop Manager importieren</value>
   </data>
+  <data name="FilterRdgFiles" xml:space="preserve">
+    <value>Remote Desktop Connection Manager (*.rdg)</value>
+  </data>
+  <data name="ImportFromRemoteDesktopConnectionManager" xml:space="preserve">
+    <value>Von Remote Desktop Connection Manager importieren</value>
+  </data>
 </root>

@@ -2631,6 +2631,15 @@ namespace mRemoteNG.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to import from Remote Desktop Connection Manager.
+        /// </summary>
+        internal static string ImportFromRemoteDesktopConnectionManager {
+            get {
+                return ResourceManager.GetString("ImportFromRemoteDesktopConnectionManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Import from Remote Desktop Manager.
         /// </summary>
         internal static string ImportFromRemoteDesktopManager {

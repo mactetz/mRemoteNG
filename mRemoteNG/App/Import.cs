@@ -84,6 +84,37 @@ namespace mRemoteNG.App
             }
         }
 
+        public static void ImportFromRemoteDesktopConnectionManager(ContainerInfo importDestinationContainer)
+        {
+            try
+            {
+                using (Runtime.ConnectionsService.BatchedSavingContext())
+                {
+                    using (var openFileDialog = new OpenFileDialog())
+                    {
+                        openFileDialog.CheckFileExists = true;
+                        openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                        openFileDialog.Multiselect = false;
+
+                        var fileTypes = new List<string>();
+                        fileTypes.AddRange(new[] { Language.FilterRdgFiles, "*.rdg" });
+
+                        openFileDialog.Filter = string.Join("|", fileTypes.ToArray());
+
+                        if (openFileDialog.ShowDialog() != DialogResult.OK)
+                            return;
+
+                        var importer = new RemoteDesktopConnectionManagerImporter();
+                        importer.Import(openFileDialog.FileName, importDestinationContainer);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Runtime.MessageCollector.AddExceptionMessage("App.Import.ImportFromRemoteDesktopConnectionManager() failed.", ex);
+            }
+        }
+
         public static void HeadlessFileImport(
 	        IEnumerable<string> filePaths,
 	        ContainerInfo importDestinationContainer,

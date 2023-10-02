@@ -2349,4 +2349,7 @@ Nightly Channel includes Alphas, Betas &amp; Release Candidates.</value>
   <data name="String" xml:space="preserve">
     <value>_cMenTreeImportFromRemoteDesktopManager.Text = "Import from &amp;Remote Desktop Manager";</value>
   </data>
+  <data name="ImportFromRemoteDesktopConnectionManager" xml:space="preserve">
+    <value>import from Remote Desktop Connection Manager</value>
+  </data>
 </root>

@@ -18,7 +18,8 @@ namespace mRemoteNG.Config.Serializers.MiscSerializers
     public class RemoteDesktopConnectionManagerDeserializer : IDeserializer<string, ConnectionTreeModel>
     {
         private static int _schemaVersion; /* 1 = RDCMan v2.2
-                                       3 = RDCMan v2.7  */
+                                       3 = RDCMan v2.7 - v2.92
+                                        */
 
         public ConnectionTreeModel Deserialize(string rdcmConnectionsXml)
         {
@@ -59,7 +60,9 @@ namespace mRemoteNG.Config.Serializers.MiscSerializers
             if (versionAttribute != null)
             {
                 var version = new Version(versionAttribute);
-                if (!(version == new Version(2, 7)) && !(version == new Version(2, 83)))
+                if (!(version == new Version(2, 7))
+                    && !(version == new Version(2, 83))
+                    && !(version == new Version(2, 92)))
                 {
                     throw new FileFormatException($"Unsupported file version ({version}).");
                 }
@@ -117,7 +120,7 @@ namespace mRemoteNG.Config.Serializers.MiscSerializers
 
             if (_schemaVersion == 3)
             {
-                // Program Version 2.7 wraps these properties
+                // Program Version 2.7 - 2.9 wraps these properties
                 containerPropertiesNode = containerPropertiesNode.SelectSingleNode("./properties");
             }
             newContainer.Name = containerPropertiesNode?.SelectSingleNode("./name")?.InnerText ?? Language.NewFolder;
