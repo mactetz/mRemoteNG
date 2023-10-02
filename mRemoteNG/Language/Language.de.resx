@@ -2031,4 +2031,7 @@ Nightly umfasst Alphas, Betas und Release Candidates.</value>
   <data name="ApplyInheritanceToChildren" xml:space="preserve">
     <value>Vererbung auf Kinder anwenden</value>
   </data>
+  <data name="ImportFromRemoteDesktopManager" xml:space="preserve">
+    <value>Von Remote Desktop Manager importieren</value>
+  </data>
 </root>

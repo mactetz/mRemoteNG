@@ -463,6 +463,7 @@ namespace mRemoteNG.UI.Controls
             _cMenTreeImportFile.Text = Language.ImportFromFile;
             _cMenTreeImportActiveDirectory.Text = Language.ImportAD;
             _cMenTreeImportPortScan.Text = Language.ImportPortScan;
+            _cMenTreeImportFromRemoteDesktopManager.Text = Language.ImportFromRemoteDesktopManager;
             _cMenTreeExportFile.Text = Language._ExportToFile;
 
             _cMenTreeAddConnection.Text = Language.NewConnection;

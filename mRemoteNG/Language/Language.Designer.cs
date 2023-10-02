@@ -2631,6 +2631,15 @@ namespace mRemoteNG.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import from Remote Desktop Manager.
+        /// </summary>
+        internal static string ImportFromRemoteDesktopManager {
+            get {
+                return ResourceManager.GetString("ImportFromRemoteDesktopManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Import from Port Scan.
         /// </summary>
         internal static string ImportPortScan {
@@ -6015,6 +6024,15 @@ namespace mRemoteNG.Resources.Language {
         internal static string strConnectionsBackupPath {
             get {
                 return ResourceManager.GetString("strConnectionsBackupPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _cMenTreeImportFromRemoteDesktopManager.Text = &quot;Import from &amp;Remote Desktop Manager&quot;;.
+        /// </summary>
+        internal static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
             }
         }
         

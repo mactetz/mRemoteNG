@@ -2343,4 +2343,10 @@ Nightly Channel includes Alphas, Betas &amp; Release Candidates.</value>
   <data name="UseAccessToken" xml:space="preserve">
     <value>Use RD Gateway access token</value>
   </data>
+  <data name="ImportFromRemoteDesktopManager" xml:space="preserve">
+    <value>Import from Remote Desktop Manager</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>_cMenTreeImportFromRemoteDesktopManager.Text = "Import from &amp;Remote Desktop Manager";</value>
+  </data>
 </root>
