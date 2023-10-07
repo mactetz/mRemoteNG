@@ -116,11 +116,6 @@
     <PackageReference Include="VncSharpCore" Version="1.2.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Language\Language.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Language.resx</DependentUpon>
-    </Compile>
     <Compile Update="Properties\AssemblyInfo.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -492,6 +487,8 @@
   </Target>
   <ItemGroup>
     <ProjectReference Include="..\ExternalConnectors\ExternalConnectors.csproj" />
+    <ProjectReference Include="..\mRemoteNG.Common\mRemoteNG.Common.csproj" />
+    <ProjectReference Include="..\mRemoteNG.Model\mRemoteNG.Model.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ConsoleControl">
@@ -509,13 +506,6 @@
   <ItemGroup>
     <XliffResource Include="MultilingualResources\mRemoteNG.ru-RU.xlf" />
     <XliffResource Include="MultilingualResources\mRemoteNG.ru.xlf" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Language\Language.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <CustomToolNamespace>mRemoteNG.Resources.Language</CustomToolNamespace>
-      <LastGenOutput>Language.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="92.0.25" />
