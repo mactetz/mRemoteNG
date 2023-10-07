@@ -6,6 +6,7 @@ using System.Threading;
 using mRemoteNG.App;
 using mRemoteNG.Config.DatabaseConnectors;
 using mRemoteNG.Messages;
+using mRemoteNG.Security.SymmetricEncryption;
 
 namespace mRemoteNG.Config.Connections.Multiuser
 {
@@ -20,7 +21,14 @@ namespace mRemoteNG.Config.Connections.Multiuser
 
         public SqlConnectionsUpdateChecker()
         {
-            _dbConnector = DatabaseConnectorFactory.DatabaseConnectorFromSettings();
+            var sqlType = Properties.OptionsDBsPage.Default.SQLServerType;
+            var sqlHost = Properties.OptionsDBsPage.Default.SQLHost;
+            var sqlCatalog = Properties.OptionsDBsPage.Default.SQLDatabaseName;
+            var sqlUsername = Properties.OptionsDBsPage.Default.SQLUser;
+            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
+            var sqlPassword = cryptographyProvider.Decrypt(Properties.OptionsDBsPage.Default.SQLPass, Runtime.EncryptionKey);
+
+            _dbConnector = DatabaseConnectorFactory.DatabaseConnector(sqlType, sqlHost, sqlCatalog, sqlUsername, sqlPassword);
             _dbQuery = _dbConnector.DbCommand("SELECT * FROM tblUpdate");
             _lastDatabaseUpdateTime = default(DateTime);
         }

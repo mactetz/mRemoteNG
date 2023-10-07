@@ -100,7 +100,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-    <PackageReference Include="MySql.Data" Version="8.0.33" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ObjectListView.Updated" Version="2.9.3" />
     <PackageReference Include="OpenCover" Version="4.7.1221" />
@@ -109,7 +108,6 @@
     <PackageReference Include="ReportGenerator" Version="5.1.23" />
     <PackageReference Include="SSH.NET" Version="2020.0.2" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="System.DirectoryServices" Version="7.0.1" />
     <PackageReference Include="System.Management" Version="7.0.2" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
@@ -515,5 +513,8 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\DatabaseConnectors\" />
   </ItemGroup>
 </Project>

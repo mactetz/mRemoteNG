@@ -1,5 +1,5 @@
-﻿using mRemoteNG.App;
-using mRemoteNG.Security.SymmetricEncryption;
+﻿//using mRemoteNG.App;
+//using mRemoteNG.Security.SymmetricEncryption;
 using System.Runtime.Versioning;
 
 namespace mRemoteNG.Config.DatabaseConnectors
@@ -7,7 +7,7 @@ namespace mRemoteNG.Config.DatabaseConnectors
     [SupportedOSPlatform("windows")]
     public static class DatabaseConnectorFactory
     {
-        public static IDatabaseConnector DatabaseConnectorFromSettings()
+/*        public static IDatabaseConnector DatabaseConnectorFromSettings()
         {
             // TODO: add custom port handling?
             var sqlType = Properties.OptionsDBsPage.Default.SQLServerType;
@@ -19,7 +19,7 @@ namespace mRemoteNG.Config.DatabaseConnectors
 
             return DatabaseConnector(sqlType, sqlHost, sqlCatalog, sqlUsername, sqlPassword);
         }
-
+*/
         public static IDatabaseConnector DatabaseConnector(string type, string server, string database, string username, string password)
         {
             switch (type)

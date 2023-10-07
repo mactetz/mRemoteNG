@@ -54,7 +54,15 @@ namespace mRemoteNG.Config.Connections
                 return;
             }
 
-            using (var dbConnector = DatabaseConnectorFactory.DatabaseConnectorFromSettings())
+            var sqlType = Properties.OptionsDBsPage.Default.SQLServerType;
+            var sqlHost = Properties.OptionsDBsPage.Default.SQLHost;
+            var sqlCatalog = Properties.OptionsDBsPage.Default.SQLDatabaseName;
+            var sqlUsername = Properties.OptionsDBsPage.Default.SQLUser;
+            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
+            var sqlPassword = cryptographyProvider.Decrypt(Properties.OptionsDBsPage.Default.SQLPass, Runtime.EncryptionKey);
+
+            
+            using (var dbConnector = DatabaseConnectorFactory.DatabaseConnector(sqlType, sqlHost, sqlCatalog, sqlUsername, sqlPassword))
             {
                 dbConnector.Connect();
                 var databaseVersionVerifier = new SqlDatabaseVersionVerifier(dbConnector);

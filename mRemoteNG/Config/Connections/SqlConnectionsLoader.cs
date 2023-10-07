@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Versioning;
 using System.Security;
+using mRemoteNG.App;
 using mRemoteNG.Config.DatabaseConnectors;
 using mRemoteNG.Config.DataProviders;
 using mRemoteNG.Config.Serializers;
@@ -37,7 +38,14 @@ namespace mRemoteNG.Config.Connections
 
         public ConnectionTreeModel Load()
         {
-            var connector = DatabaseConnectorFactory.DatabaseConnectorFromSettings();
+            var sqlType = Properties.OptionsDBsPage.Default.SQLServerType;
+            var sqlHost = Properties.OptionsDBsPage.Default.SQLHost;
+            var sqlCatalog = Properties.OptionsDBsPage.Default.SQLDatabaseName;
+            var sqlUsername = Properties.OptionsDBsPage.Default.SQLUser;
+            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
+            var sqlPassword = cryptographyProvider.Decrypt(Properties.OptionsDBsPage.Default.SQLPass, Runtime.EncryptionKey);
+
+            var connector = DatabaseConnectorFactory.DatabaseConnector(sqlType, sqlHost, sqlCatalog, sqlUsername, sqlPassword);
             var dataProvider = new SqlDataProvider(connector);
             var metaDataRetriever = new SqlDatabaseMetaDataRetriever();
             var databaseVersionVerifier = new SqlDatabaseVersionVerifier(connector);
