@@ -70,7 +70,7 @@ namespace mRemoteNG.Config.Settings
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Saving settings failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Saving settings failed", ex);
             }
         }
 

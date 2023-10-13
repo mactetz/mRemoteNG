@@ -198,7 +198,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Sql
             dataTable.Columns.Add("InheritVNCSmartSizeMode", typeof(bool));
             dataTable.Columns.Add("InheritVNCViewOnly", typeof(bool));
             dataTable.Columns.Add("InheritVmId", typeof(bool));
-            dataTable.Columns.Add("LastChange", MiscTools.DBTimeStampType());
+            dataTable.Columns.Add("LastChange", MiscToolsDatabase.DBTimeStampType(Properties.OptionsDBsPage.Default.SQLServerType));
             dataTable.Columns.Add("LoadBalanceInfo", typeof(string));
             dataTable.Columns.Add("MacAddress", typeof(string));
             dataTable.Columns.Add("Name", typeof(string));
@@ -567,7 +567,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Sql
             dataRow["Hostname"] = connectionInfo.Hostname;
             dataRow["ICAEncryptionStrength"] = string.Empty;
             dataRow["Icon"] = connectionInfo.Icon;
-            dataRow["LastChange"] = MiscTools.DBTimeStampNow();
+            dataRow["LastChange"] = MiscToolsDatabase.DBTimeStampNow(Properties.OptionsDBsPage.Default.SQLServerType);
             dataRow["LoadBalanceInfo"] = connectionInfo.LoadBalanceInfo;
             dataRow["MacAddress"] = connectionInfo.MacAddress;
             dataRow["Name"] = connectionInfo.Name;

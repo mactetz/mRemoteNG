@@ -41,7 +41,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpConnectionFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.HttpConnectionFailed, ex);
             }
         }
 
@@ -84,7 +84,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpSetPropsFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.HttpSetPropsFailed, ex);
                 return false;
             }
         }
@@ -107,7 +107,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpConnectFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.HttpConnectFailed, ex);
                 return false;
             }
         }
@@ -142,7 +142,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpFailedUrlBuild, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.HttpFailedUrlBuild, ex);
                 return string.Empty;
             }
         }
@@ -155,7 +155,7 @@ namespace mRemoteNG.Connection.Protocol.Http
         {
             if (!e.IsSuccess)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpFailedUrlBuild, e.InitializationException);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.HttpFailedUrlBuild, e.InitializationException);
             }
         }
 
@@ -195,7 +195,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpDocumentTileChangeFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.HttpDocumentTileChangeFailed, ex);
             }
         }
 

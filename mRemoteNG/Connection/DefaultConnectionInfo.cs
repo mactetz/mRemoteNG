@@ -46,7 +46,7 @@ namespace mRemoteNG.Connection
                 }
                 catch (Exception ex)
                 {
-                    Runtime.MessageCollector?.AddExceptionStackTrace($"Error loading default connectioninfo property {property.Name}", ex);
+                    RuntimeCommon.MessageCollector?.AddExceptionStackTrace($"Error loading default connectioninfo property {property.Name}", ex);
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace mRemoteNG.Connection
                 }
                 catch (Exception ex)
                 {
-                    Runtime.MessageCollector?.AddExceptionStackTrace($"Error saving default connectioninfo property {property.Name}", ex);
+                    RuntimeCommon.MessageCollector?.AddExceptionStackTrace($"Error saving default connectioninfo property {property.Name}", ex);
                 }
             }
         }

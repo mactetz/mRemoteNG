@@ -105,7 +105,7 @@ namespace mRemoteNG.Tools.Cmdline
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("Creating new Args failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("Creating new Args failed", ex);
             }
         }
     }

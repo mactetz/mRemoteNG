@@ -88,7 +88,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.ErrorAddExternalToolsToToolBarFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.ErrorAddExternalToolsToToolBarFailed, ex);
             }
             finally
             {
@@ -106,7 +106,7 @@ namespace mRemoteNG.UI.Controls
                 extA.Start(selectedTreeNode);
             else
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "No connection was selected, external tool may return errors.", true);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, "No connection was selected, external tool may return errors.", true);
                 extA.Start();
             }
         }

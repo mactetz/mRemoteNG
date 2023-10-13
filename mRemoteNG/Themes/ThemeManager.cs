@@ -97,7 +97,7 @@ namespace mRemoteNG.Themes
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Error loading theme directory", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Error loading theme directory", ex);
             }
 
             return false;
@@ -113,7 +113,7 @@ namespace mRemoteNG.Themes
 
                     if (!File.Exists($"{themePath}\\vs2015light.vstheme"))
                     {
-                        Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, "Could not find default theme file.",
+                        RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, "Could not find default theme file.",
                                                             true);
                         return null;
                     }
@@ -128,7 +128,7 @@ namespace mRemoteNG.Themes
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Error loading default theme", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Error loading default theme", ex);
             }
 
             return null;
@@ -196,7 +196,7 @@ namespace mRemoteNG.Themes
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Error loading themes", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Error loading themes", ex);
             }
 
             return themes.Values.OfType<ThemeInfo>().ToList();

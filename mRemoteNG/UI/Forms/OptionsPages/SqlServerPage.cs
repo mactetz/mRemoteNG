@@ -6,6 +6,7 @@ using mRemoteNG.Properties;
 using mRemoteNG.Security.SymmetricEncryption;
 using mRemoteNG.Resources.Language;
 using System.Runtime.Versioning;
+using mRemoteNG.Model.Config;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
@@ -80,7 +81,22 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private static void ReinitializeSqlUpdater()
         {
             Runtime.ConnectionsService.RemoteConnectionsSyncronizer?.Dispose();
-            Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
+
+            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
+            DateTime LastUpdateTime = Runtime.ConnectionsService.LastSqlUpdate;
+            //create Command object
+            var DBCommandSettings = new DBConnectionSettingsDTO()
+            {
+                sqlType = Properties.OptionsDBsPage.Default.SQLServerType,
+                sqlHost = Properties.OptionsDBsPage.Default.SQLHost,
+                sqlCatalog = Properties.OptionsDBsPage.Default.SQLDatabaseName,
+                sqlUsername = Properties.OptionsDBsPage.Default.SQLUser,
+                sqlPasswordCrypted = Properties.OptionsDBsPage.Default.SQLPass,
+                encryptionKey = Runtime.EncryptionKey
+            };
+
+            Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker(cryptographyProvider, LastUpdateTime, DBCommandSettings));
+//            Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
             Runtime.ConnectionsService.LoadConnections(true, false, "");
         }
 

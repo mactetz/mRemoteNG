@@ -49,7 +49,7 @@ namespace mRemoteNG.Connection.Protocol.RDP
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.RdpSetPropsFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.RdpSetPropsFailed, ex);
                 return false;
             }
 

@@ -295,7 +295,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("UI.Window.Tree.AddConnection() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("UI.Window.Tree.AddConnection() failed.", ex);
             }
         }
 
@@ -307,7 +307,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.ErrorAddFolderFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.ErrorAddFolderFailed, ex);
             }
         }
 
@@ -459,7 +459,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "tvConnections_AfterSelect (UI.Window.ConnectionTreeWindow) failed",
                                                                 ex);
             }
@@ -501,7 +501,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "tvConnections_MouseMove (UI.Window.ConnectionTreeWindow) failed",
                                                                 ex);
             }
@@ -540,7 +540,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("tvConnections_AfterLabelEdit (UI.Window.ConnectionTreeWindow) failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("tvConnections_AfterLabelEdit (UI.Window.ConnectionTreeWindow) failed", ex);
             }
         }
 

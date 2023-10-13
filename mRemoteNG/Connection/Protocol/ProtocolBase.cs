@@ -88,7 +88,7 @@ namespace mRemoteNG.Connection.Protocol
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Couldn't focus Control (Connection.Protocol.Base)", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Couldn't focus Control (Connection.Protocol.Base)", ex);
             }
         }
 
@@ -125,7 +125,7 @@ namespace mRemoteNG.Connection.Protocol
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Couldn't SetProps (Connection.Protocol.Base)", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Couldn't SetProps (Connection.Protocol.Base)", ex);
                 return false;
             }
         }
@@ -166,7 +166,7 @@ namespace mRemoteNG.Connection.Protocol
                     }
                     catch (Exception ex)
                     {
-                        Runtime.MessageCollector?.AddExceptionStackTrace(
+                        RuntimeCommon.MessageCollector?.AddExceptionStackTrace(
                             "Couldn't dispose control, probably form is already closed (Connection.Protocol.Base)", ex);
                     }
                 }
@@ -186,14 +186,14 @@ namespace mRemoteNG.Connection.Protocol
                 }
                 catch (Exception ex)
                 {
-                    Runtime.MessageCollector?.AddExceptionStackTrace(
+                    RuntimeCommon.MessageCollector?.AddExceptionStackTrace(
                         "Couldn't set InterfaceControl.Parent.Tag or Dispose Interface, " +
                         "probably form is already closed (Connection.Protocol.Base)", ex);
                 }
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector?.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector?.AddExceptionStackTrace(
                     "Couldn't Close InterfaceControl BG (Connection.Protocol.Base)", ex);
             }
         }

@@ -10,7 +10,10 @@ using mRemoteNG.App.Update;
 using mRemoteNG.Config.Connections.Multiuser;
 using mRemoteNG.Connection;
 using mRemoteNG.Messages;
+using mRemoteNG.Model.Config;
 using mRemoteNG.Properties;
+using mRemoteNG.Security;
+using mRemoteNG.Security.SymmetricEncryption;
 using mRemoteNG.Tools;
 using mRemoteNG.Tools.Cmdline;
 using mRemoteNG.UI;
@@ -62,7 +65,21 @@ namespace mRemoteNG.App
             messageCollector.AddMessage(MessageClass.DebugMsg, "Determining if we need a database syncronizer");
             if (!Properties.OptionsDBsPage.Default.UseSQLServer) return;
             messageCollector.AddMessage(MessageClass.DebugMsg, "Creating database syncronizer");
-            Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
+
+            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
+            DateTime LastUpdateTime = Runtime.ConnectionsService.LastSqlUpdate;
+            //create Command object
+            var DBCommandSettings = new DBConnectionSettingsDTO()
+            {
+                sqlType = Properties.OptionsDBsPage.Default.SQLServerType,
+                sqlHost = Properties.OptionsDBsPage.Default.SQLHost,
+                sqlCatalog = Properties.OptionsDBsPage.Default.SQLDatabaseName,
+                sqlUsername = Properties.OptionsDBsPage.Default.SQLUser,
+                sqlPasswordCrypted = Properties.OptionsDBsPage.Default.SQLPass,
+                encryptionKey = Runtime.EncryptionKey
+            };
+
+            Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker(cryptographyProvider, LastUpdateTime, DBCommandSettings));
             Runtime.ConnectionsService.RemoteConnectionsSyncronizer.Enable();
         }
 
@@ -94,7 +111,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("CheckForUpdate() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("CheckForUpdate() failed.", ex);
             }
         }
     }

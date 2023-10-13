@@ -30,7 +30,7 @@ namespace mRemoteNG.Config.Import
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("Config.Import.ActiveDirectory.Import() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("Config.Import.ActiveDirectory.Import() failed.", ex);
             }
         }
     }

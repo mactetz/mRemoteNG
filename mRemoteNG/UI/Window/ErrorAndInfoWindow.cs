@@ -105,7 +105,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "LayoutVertical (UI.Window.ErrorsAndInfos) failed" +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -131,7 +131,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "LayoutHorizontal (UI.Window.ErrorsAndInfos) failed" +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -156,7 +156,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "ErrorsAndInfos_Resize (UI.Window.ErrorsAndInfos) failed" +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -175,7 +175,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "pnlErrorMsg_ResetDefaultStyle (UI.Window.ErrorsAndInfos) failed" +
                                                     Environment.NewLine +
                                                     ex.Message, true);
@@ -201,7 +201,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "MC_KeyDown (UI.Window.ErrorsAndInfos) failed" +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -287,7 +287,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "lvErrorCollector_SelectedIndexChanged (UI.Window.ErrorsAndInfos) failed" +
                                                     Environment.NewLine +
                                                     ex.Message, true);
@@ -361,7 +361,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "UI.Window.ErrorsAndInfos.CopyMessagesToClipboard() failed." +
                                                     Environment.NewLine + ex.Message,
                                                     true);
@@ -401,7 +401,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     "UI.Window.ErrorsAndInfos.DeleteMessages() failed" +
                                                     Environment.NewLine + ex.Message, true);
             }

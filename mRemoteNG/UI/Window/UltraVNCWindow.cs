@@ -136,7 +136,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     "StartListening (UI.Window.UltraVNCSC) failed" +
                                                     Environment.NewLine + ex.Message);
                 Close();

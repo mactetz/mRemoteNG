@@ -237,7 +237,7 @@ namespace mRemoteNG.Connection
             }
             catch (Exception e)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace($"Error retrieving inherited property '{propertyName}'", e);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace($"Error retrieving inherited property '{propertyName}'", e);
                 inheritedValue = default(TPropertyType);
                 return false;
             }
@@ -278,7 +278,7 @@ namespace mRemoteNG.Connection
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.ConnectionSetDefaultPortFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.ConnectionSetDefaultPortFailed, ex);
                 return 0;
             }
         }

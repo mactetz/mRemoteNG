@@ -42,7 +42,7 @@ namespace mRemoteNG.Config.Settings
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("SavePanelsToXML failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("SavePanelsToXML failed", ex);
             }
         }
     }

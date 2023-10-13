@@ -170,7 +170,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("PopulateQuickConnectProtocolMenu() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("PopulateQuickConnectProtocolMenu() failed.", ex);
             }
         }
 
@@ -203,7 +203,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("btnQuickConnect_ButtonClick() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("btnQuickConnect_ButtonClick() failed.", ex);
             }
         }
 

@@ -55,7 +55,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Sql
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"Retrieving database version failed. {ex}");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"Retrieving database version failed. {ex}");
                 throw;
             }
             finally
@@ -107,7 +107,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Sql
             }
             else
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"UpdateRootNodeTable: rootTreeNode was null. Could not insert!");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"UpdateRootNodeTable: rootTreeNode was null. Could not insert!");
             }
         }
 

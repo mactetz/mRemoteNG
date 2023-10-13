@@ -30,7 +30,7 @@ namespace mRemoteNG.Connection.Protocol.PowerShell
         {
             try
             {
-                Runtime.MessageCollector?.AddMessage(MessageClass.InformationMsg, "Attempting to start remote PowerShell session.", true);
+                RuntimeCommon.MessageCollector?.AddMessage(MessageClass.InformationMsg, "Attempting to start remote PowerShell session.", true);
 
                 _consoleControl = new ConsoleControl.ConsoleControl
                 {
@@ -54,7 +54,7 @@ namespace mRemoteNG.Connection.Protocol.PowerShell
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector?.AddExceptionMessage(Language.ConnectionFailed, ex);
+                RuntimeCommon.MessageCollector?.AddExceptionMessage(Language.ConnectionFailed, ex);
                 return false;
             }
         }
@@ -67,7 +67,7 @@ namespace mRemoteNG.Connection.Protocol.PowerShell
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.IntAppFocusFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.IntAppFocusFailed, ex);
             }
         }
 
@@ -84,7 +84,7 @@ namespace mRemoteNG.Connection.Protocol.PowerShell
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.IntAppResizeFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.IntAppResizeFailed, ex);
             }
         }
 

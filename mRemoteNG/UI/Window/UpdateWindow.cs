@@ -158,7 +158,7 @@ namespace mRemoteNG.UI.Window
                     }
                     catch (Exception ex)
                     {
-                        Runtime.MessageCollector?.AddExceptionStackTrace(Language.UpdateGetChangeLogFailed, ex);
+                        RuntimeCommon.MessageCollector?.AddExceptionStackTrace(Language.UpdateGetChangeLogFailed, ex);
                     }
 
                     btnDownload.Focus();
@@ -180,8 +180,7 @@ namespace mRemoteNG.UI.Window
             {
                 lblStatus.Text = Language.CheckFailed;
                 lblStatus.ForeColor = Color.OrangeRed;
-
-                Runtime.MessageCollector?.AddExceptionStackTrace(Language.UpdateCheckCompleteFailed, ex);
+                RuntimeCommon.MessageCollector?.AddExceptionStackTrace(Language.UpdateCheckCompleteFailed, ex);
             }
         }
 
@@ -224,10 +223,9 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector?.AddExceptionStackTrace(Language.UpdateDownloadFailed, ex);
-
-                Runtime.MessageCollector?.AddExceptionStackTrace(Language.UpdateDownloadCompleteFailed, ex);
-                Runtime.MessageCollector?.AddMessage(MessageClass.ErrorMsg, ex.Message);
+                RuntimeCommon.MessageCollector?.AddExceptionStackTrace(Language.UpdateDownloadFailed, ex);
+                RuntimeCommon.MessageCollector?.AddExceptionStackTrace(Language.UpdateDownloadCompleteFailed, ex);
+                RuntimeCommon.MessageCollector?.AddMessage(MessageClass.ErrorMsg, ex.Message);
 
             }
         }

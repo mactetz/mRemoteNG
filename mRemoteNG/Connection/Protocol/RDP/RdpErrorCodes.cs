@@ -38,7 +38,7 @@ namespace mRemoteNG.Connection.Protocol.RDP
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.RdpErrorGetFailure, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.RdpErrorGetFailure, ex);
                 return string.Format(Language.RdpErrorUnknown, id);
             }
         }

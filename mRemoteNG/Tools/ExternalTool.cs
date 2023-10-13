@@ -92,7 +92,7 @@ namespace mRemoteNG.Tools
 
         public ConnectionInfo ConnectionInfo { get; set; }
 
-        public Icon Icon => File.Exists(FileName) ? MiscTools.GetIconFromFile(FileName) : Properties.Resources.mRemoteNG_Icon;
+        public Icon Icon => File.Exists(FileName) ? MiscToolsGui.GetIconFromFile(FileName) : Properties.Resources.mRemoteNG_Icon;
 
         public Image Image => Icon?.ToBitmap() ?? Properties.Resources.mRemoteNG_Icon.ToBitmap();
 
@@ -117,7 +117,7 @@ namespace mRemoteNG.Tools
             {
                 if (string.IsNullOrEmpty(FileName))
                 {
-                    Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                    RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                         "ExternalApp.Start() failed: FileName cannot be blank.");
                     return;
                 }
@@ -136,7 +136,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("ExternalApp.Start() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("ExternalApp.Start() failed.", ex);
             }
         }
 
@@ -171,7 +171,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("ExternalApp.StartIntegrated() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("ExternalApp.StartIntegrated() failed.", ex);
             }
         }
 

@@ -30,13 +30,13 @@ namespace mRemoteNG.Config.DataProviders
             }
             catch (FileNotFoundException ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 $"Could not load file. File does not exist '{FilePath}'",
                                                                 ex);
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace($"Failed to load file {FilePath}", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace($"Failed to load file {FilePath}", ex);
             }
 
             return fileContents;
@@ -51,7 +51,7 @@ namespace mRemoteNG.Config.DataProviders
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace($"Failed to save file {FilePath}", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace($"Failed to save file {FilePath}", ex);
             }
         }
 
@@ -64,7 +64,7 @@ namespace mRemoteNG.Config.DataProviders
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace($"Failed to move file {FilePath} to {newPath}", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace($"Failed to move file {FilePath} to {newPath}", ex);
             }
         }
 

@@ -42,7 +42,6 @@ namespace mRemoteNG.App
         public static bool UseCredentialManager => false;
 
         public static WindowList WindowList { get; set; }
-        public static MessageCollector MessageCollector { get; } = new MessageCollector();
         public static NotificationAreaIcon NotificationAreaIcon { get; set; }
         public static ExternalToolsService ExternalToolsService { get; } = new ExternalToolsService();
 
@@ -119,7 +118,7 @@ namespace mRemoteNG.App
 
                 if (Properties.OptionsDBsPage.Default.UseSQLServer)
                 {
-                    MessageCollector.AddExceptionMessage(Language.LoadFromSqlFailed, ex);
+                    RuntimeCommon.MessageCollector.AddExceptionMessage(Language.LoadFromSqlFailed, ex);
                     var commandButtons = string.Join("|", Language._TryAgain, Language.CommandOpenConnectionFile, string.Format(Language.CommandExitProgram, Application.ProductName));
                     CTaskDialog.ShowCommandBox(Application.ProductName, Language.LoadFromSqlFailed, Language.LoadFromSqlFailedContent, MiscTools.GetExceptionMessageRecursive(ex), "", "", commandButtons, false, ESysIcons.Error, ESysIcons.Error);
                     switch (CTaskDialog.CommandButtonResult)
@@ -139,7 +138,7 @@ namespace mRemoteNG.App
 
                 if (ex is FileNotFoundException && !withDialog)
                 {
-                    MessageCollector.AddExceptionMessage(
+                    RuntimeCommon.MessageCollector.AddExceptionMessage(
                                                          string.Format(Language.ConnectionsFileCouldNotBeLoadedNew,
                                                                        connectionFileName), ex,
                                                          MessageClass.InformationMsg);
@@ -182,14 +181,15 @@ namespace mRemoteNG.App
                         }
                         catch (Exception exc)
                         {
-                            MessageCollector.AddExceptionMessage(string.Format(Language.ConnectionsFileCouldNotBeLoadedNew, connectionFileName), exc, MessageClass.InformationMsg);
+                            RuntimeCommon.MessageCollector.AddExceptionMessage(string.Format(Language.ConnectionsFileCouldNotBeLoadedNew, connectionFileName), exc, MessageClass.InformationMsg);
                         }
                     }
 
                     return;
                 }
 
-                MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.
+                                MessageCollector.AddExceptionStackTrace(
                                                         string.Format(Language.ConnectionsFileCouldNotBeLoaded,
                                                                       connectionFileName), ex);
                 if (connectionFileName != ConnectionsService.GetStartupConnectionFileName())

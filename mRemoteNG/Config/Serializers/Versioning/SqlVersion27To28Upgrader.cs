@@ -25,7 +25,7 @@ namespace mRemoteNG.Config.Serializers.Versioning
 
         public Version Upgrade()
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                 "Upgrading database from version 2.7 to version 2.8.");
 
             try

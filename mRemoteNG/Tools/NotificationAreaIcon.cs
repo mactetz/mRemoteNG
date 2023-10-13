@@ -59,7 +59,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Creating new SysTrayIcon failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Creating new SysTrayIcon failed", ex);
             }
         }
 
@@ -74,7 +74,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Disposing SysTrayIcon failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Disposing SysTrayIcon failed", ex);
             }
         }
 

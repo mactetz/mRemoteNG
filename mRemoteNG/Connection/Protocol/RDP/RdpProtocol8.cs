@@ -90,8 +90,7 @@ namespace mRemoteNG.Connection.Protocol.RDP
 
             if (SmartSize)
                 return;
-
-            Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg,
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg,
                 $"Resizing RDP connection to host '{connectionInfo.Hostname}'");
 
             try
@@ -104,7 +103,7 @@ namespace mRemoteNG.Connection.Protocol.RDP
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(
+                RuntimeCommon.MessageCollector.AddExceptionMessage(
                     string.Format(Language.ChangeConnectionResolutionError, connectionInfo.Hostname),
                     ex, MessageClass.WarningMsg, false);
             }

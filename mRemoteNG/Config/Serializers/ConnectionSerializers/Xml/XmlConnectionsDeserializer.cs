@@ -88,7 +88,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             catch (Exception ex)
             {
                 Runtime.ConnectionsService.IsConnectionsFileLoaded = false;
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.LoadFromXmlFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.LoadFromXmlFailed, ex);
                 throw;
             }
         }
@@ -109,7 +109,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             if (_xmlDocument.DocumentElement != null && _xmlDocument.DocumentElement.HasAttribute("ConfVersion"))
                 _confVersion = Convert.ToDouble(_xmlDocument.DocumentElement.Attributes["ConfVersion"]?.Value.Replace(",", "."), CultureInfo.InvariantCulture);
             else
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, Language.OldConffile);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, Language.OldConffile);
 
             if (!(_confVersion > MaxSupportedConfVersion)) return;
             ShowIncompatibleVersionDialogBox();
@@ -200,7 +200,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.AddNodeFromXmlFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.AddNodeFromXmlFailed, ex);
                 throw;
             }
         }
@@ -566,7 +566,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, string.Format(Language.GetConnectionInfoFromXmlFailed, connectionInfo.Name, ConnectionFileName, ex.Message));
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, string.Format(Language.GetConnectionInfoFromXmlFailed, connectionInfo.Name, ConnectionFileName, ex.Message));
             }
 
             return connectionInfo;

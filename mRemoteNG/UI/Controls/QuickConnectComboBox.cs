@@ -179,7 +179,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.QuickConnectAddFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.QuickConnectAddFailed, ex);
             }
         }
 

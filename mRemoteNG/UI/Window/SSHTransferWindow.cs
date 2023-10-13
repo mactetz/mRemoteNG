@@ -383,13 +383,13 @@ namespace mRemoteNG.UI.Window
         {
             if (AllFieldsSet() == false)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, Language.PleaseFillAllFields);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, Language.PleaseFillAllFields);
                 return;
             }
 
             if (File.Exists(txtLocalFile.Text) == false)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, Language.LocalFileDoesNotExist);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, Language.LocalFileDoesNotExist);
                 return;
             }
 
@@ -418,7 +418,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.SshTransferFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.SshTransferFailed, ex);
                 st?.Disconnect();
                 st?.Dispose();
             }
@@ -426,7 +426,7 @@ namespace mRemoteNG.UI.Window
 
         private void AsyncCallback(IAsyncResult ar)
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, $"SFTP AsyncCallback completed.", true);
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, $"SFTP AsyncCallback completed.", true);
         }
 
         private void ScpClt_Uploading(object sender, Renci.SshNet.Common.ScpUploadEventArgs e)
@@ -445,7 +445,7 @@ namespace mRemoteNG.UI.Window
             try
             {
                 DisableButtons();
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                     $"Transfer of {Path.GetFileName(st.SrcFile)} started.", true);
                 st.Upload();
 
@@ -466,8 +466,7 @@ namespace mRemoteNG.UI.Window
                         Thread.Sleep(50);
                     }
                 }
-
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                     $"Transfer of {Path.GetFileName(st.SrcFile)} completed.", true);
                 st.Disconnect();
                 st.Dispose();
@@ -475,7 +474,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.SshBackgroundTransferFailed, ex,
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.SshBackgroundTransferFailed, ex,
                                                                 MessageClass.ErrorMsg, false);
                 st?.Disconnect();
                 st?.Dispose();

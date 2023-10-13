@@ -75,7 +75,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("App.Runtime.Windows.Show() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("App.Runtime.Windows.Show() failed.", ex);
             }
         }
     }

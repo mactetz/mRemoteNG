@@ -66,7 +66,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("App.Export.ExportToFile() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("App.Export.ExportToFile() failed.", ex);
             }
         }
 
@@ -108,7 +108,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace($"Export.SaveExportFile(\"{fileName}\") failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace($"Export.SaveExportFile(\"{fileName}\") failed.", ex);
             }
             finally
             {

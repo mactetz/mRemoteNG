@@ -122,7 +122,7 @@ namespace mRemoteNG.Config.Putty
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("PuttySessions.Watcher.StartWatching() failed.", ex, MessageClass.WarningMsg);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("PuttySessions.Watcher.StartWatching() failed.", ex, MessageClass.WarningMsg);
                 _eventWatcher?.Stop();
             }
         }

@@ -28,7 +28,7 @@ namespace mRemoteNG.Config.Serializers.Versioning
 
         public Version Upgrade()
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                 $"Upgrading database to version {_version}.");
 
             // MYSQL

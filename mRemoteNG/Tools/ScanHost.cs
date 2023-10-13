@@ -72,7 +72,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, "ToString failed (Tools.PortScan)", true);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, "ToString failed (Tools.PortScan)", true);
                 return "";
             }
         }

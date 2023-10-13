@@ -61,7 +61,7 @@ namespace mRemoteNG.Connection
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.CouldNotCreateNewConnectionsFile, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.CouldNotCreateNewConnectionsFile, ex);
             }
         }
 
@@ -118,7 +118,7 @@ namespace mRemoteNG.Connection
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.QuickConnectFailed, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.QuickConnectFailed, ex);
                 return null;
             }
         }
@@ -163,7 +163,7 @@ namespace mRemoteNG.Connection
             ConnectionTreeModel = newConnectionTreeModel;
             UpdateCustomConsPathSetting(connectionFileName);
             RaiseConnectionsLoadedEvent(oldConnectionTreeModel, newConnectionTreeModel, oldIsUsingDatabaseValue, useDatabase, connectionFileName);
-            Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, $"Connections loaded using {connectionLoader.GetType().Name}");
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg, $"Connections loaded using {connectionLoader.GetType().Name}");
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace mRemoteNG.Connection
 
             try
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Saving connections...");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, "Saving connections...");
                 RemoteConnectionsSyncronizer?.Disable();
 
                 bool previouslyUsingDatabase = UsingDatabase;
@@ -260,11 +260,11 @@ namespace mRemoteNG.Connection
                 UsingDatabase = useDatabase;
                 ConnectionFileName = connectionFileName;
                 RaiseConnectionsSavedEvent(connectionTreeModel, previouslyUsingDatabase, UsingDatabase, connectionFileName);
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Successfully saved connections");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, "Successfully saved connections");
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector?.AddExceptionMessage(string.Format(Language.ConnectionsFileCouldNotSaveAs, connectionFileName), ex, logOnly: false);
+                RuntimeCommon.MessageCollector?.AddExceptionMessage(string.Format(Language.ConnectionsFileCouldNotSaveAs, connectionFileName), ex, logOnly: false);
             }
             finally
             {

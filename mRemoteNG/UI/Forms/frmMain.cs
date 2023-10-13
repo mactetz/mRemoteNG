@@ -158,7 +158,7 @@ namespace mRemoteNG.UI.Forms
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var messageCollector = Runtime.MessageCollector;
+            var messageCollector = RuntimeCommon.MessageCollector;
 
             var settingsLoader = new SettingsLoader(this, messageCollector, _quickConnectToolStrip, _externalToolsToolStrip, _multiSshToolStrip, msMain);
             settingsLoader.LoadSettings();
@@ -333,7 +333,7 @@ namespace mRemoteNG.UI.Forms
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("Error applying theme", ex, MessageClass.WarningMsg);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("Error applying theme", ex, MessageClass.WarningMsg);
             }
         }
 
@@ -455,7 +455,7 @@ namespace mRemoteNG.UI.Forms
 
         private void TmrAutoSave_Tick(object sender, EventArgs e)
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, "Doing AutoSave");
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg, "Doing AutoSave");
             Runtime.ConnectionsService.SaveConnectionsAsync();
         }
 
@@ -592,7 +592,7 @@ namespace mRemoteNG.UI.Forms
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("frmMain WndProc failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("frmMain WndProc failed", ex);
             }
 
             base.WndProc(ref m);

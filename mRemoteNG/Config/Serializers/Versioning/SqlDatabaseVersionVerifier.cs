@@ -56,12 +56,11 @@ namespace mRemoteNG.Config.Serializers.Versioning
                 {
                     return true;
                 }
-
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, string.Format(Language.ErrorBadDatabaseVersion, databaseVersion, GeneralAppInfo.ProductName));
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, string.Format(Language.ErrorBadDatabaseVersion, databaseVersion, GeneralAppInfo.ProductName));
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, string.Format(Language.ErrorVerifyDatabaseVersionFailed, ex.Message));
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, string.Format(Language.ErrorVerifyDatabaseVersionFailed, ex.Message));
             }
 
             return false;

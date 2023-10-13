@@ -82,7 +82,7 @@ namespace mRemoteNG.Config.Serializers.MiscSerializers
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("Config.Import.ActiveDirectory.ImportComputers() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("Config.Import.ActiveDirectory.ImportComputers() failed.", ex);
             }
         }
 

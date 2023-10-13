@@ -229,7 +229,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector?.AddExceptionMessage("IeBrowserEmulation.Register() failed.", ex);
+                RuntimeCommon.MessageCollector?.AddExceptionMessage("IeBrowserEmulation.Register() failed.", ex);
             }
         }
 

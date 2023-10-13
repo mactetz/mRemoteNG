@@ -95,7 +95,7 @@ namespace mRemoteNG.UI.Tabs
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("RefreshIC (UI.Window.Connection) failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("RefreshIC (UI.Window.Connection) failed", ex);
             }
         }
 

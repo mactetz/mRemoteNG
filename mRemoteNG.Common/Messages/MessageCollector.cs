@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mRemoteNG.Tools;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -48,7 +49,7 @@ namespace mRemoteNG.Messages
 
         public void AddExceptionMessage(string message, Exception ex, MessageClass msgClass = MessageClass.ErrorMsg, bool logOnly = true)
         {
-            AddMessage(msgClass, message + Environment.NewLine + Tools.MiscTools.GetExceptionMessageRecursive(ex),
+            AddMessage(msgClass, message + Environment.NewLine + MiscTools.GetExceptionMessageRecursive(ex),
                        logOnly);
         }
 

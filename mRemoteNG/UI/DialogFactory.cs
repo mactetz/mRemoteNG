@@ -75,7 +75,7 @@ namespace mRemoteNG.UI
                 }
                 catch (Exception exception)
                 {
-                    Runtime.MessageCollector.AddExceptionMessage(string .Format(Language.ConnectionsFileCouldNotBeLoadedNew, connectionFileName), exception, MessageClass.WarningMsg);
+                    RuntimeCommon.MessageCollector.AddExceptionMessage(string .Format(Language.ConnectionsFileCouldNotBeLoadedNew, connectionFileName), exception, MessageClass.WarningMsg);
                 }
             }
         }

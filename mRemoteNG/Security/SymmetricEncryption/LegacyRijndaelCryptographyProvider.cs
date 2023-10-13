@@ -58,7 +58,7 @@ namespace mRemoteNG.Security.SymmetricEncryption
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, string.Format(Language.ErrorEncryptionFailed, ex.Message));
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, string.Format(Language.ErrorEncryptionFailed, ex.Message));
             }
 
             return strToEncrypt;

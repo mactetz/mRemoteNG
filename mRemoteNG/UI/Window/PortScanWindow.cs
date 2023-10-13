@@ -119,7 +119,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.PortScanCouldNotLoadPanel, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.PortScanCouldNotLoadPanel, ex);
             }
         }
 
@@ -147,7 +147,7 @@ namespace mRemoteNG.UI.Window
                 }
                 else
                 {
-                    Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, Language.CannotStartPortScan);
+                    RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, Language.CannotStartPortScan);
                 }
             }
         }
@@ -213,7 +213,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("StartScan failed (UI.Window.PortScan)", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("StartScan failed (UI.Window.PortScan)", ex);
             }
         }
 
@@ -238,7 +238,7 @@ namespace mRemoteNG.UI.Window
 
         private static void PortScanner_BeginHostScan(string host)
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Scanning " + host, true);
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, "Scanning " + host, true);
         }
 
         private delegate void PortScannerHostScannedDelegate(ScanHost host, int scannedCount, int totalCount);
@@ -251,8 +251,7 @@ namespace mRemoteNG.UI.Window
                        new object[] {host, scannedCount, totalCount});
                 return;
             }
-
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Host scanned " + host.HostIp, true);
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, "Host scanned " + host.HostIp, true);
 
             olvHosts.AddObject(host);
             prgBar.Maximum = totalCount;
@@ -268,8 +267,7 @@ namespace mRemoteNG.UI.Window
                 Invoke(new PortScannerScanComplete(PortScanner_ScanComplete), new object[] {hosts});
                 return;
             }
-
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, Language.PortScanComplete);
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, Language.PortScanComplete);
 
             _scanning = false;
             SwitchButtonText();
@@ -287,7 +285,7 @@ namespace mRemoteNG.UI.Window
 
             if (hosts.Count < 1)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg,
                                                     "Could not import host(s) from port scan context menu");
                 return;
             }

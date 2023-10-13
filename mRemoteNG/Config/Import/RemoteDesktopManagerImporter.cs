@@ -20,12 +20,12 @@ namespace mRemoteNG.Config.Import
         {
             if (string.IsNullOrEmpty(filePath))
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"Unable to import file. File path is null.");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"Unable to import file. File path is null.");
                 return;
             }
 
             if (!File.Exists(filePath))
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"Unable to import file. File does not exist. Path: {filePath}");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"Unable to import file. File does not exist. Path: {filePath}");
 
             var dataProvider = new FileDataProvider(filePath);
             var csvString = dataProvider.Load();
@@ -41,7 +41,7 @@ namespace mRemoteNG.Config.Import
             }
             else
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, "Unable to import file. File is empty.");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, "Unable to import file. File is empty.");
                 return;
             }
         }

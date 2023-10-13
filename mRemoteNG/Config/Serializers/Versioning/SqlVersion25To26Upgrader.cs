@@ -23,7 +23,7 @@ namespace mRemoteNG.Config.Serializers.Versioning
 
         public Version Upgrade()
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                 "Upgrading database from version 2.5 to version 2.6.");
             const string sqlText = @"
 ALTER TABLE tblCons

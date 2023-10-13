@@ -26,7 +26,7 @@ namespace mRemoteNG.Config.Connections
 
         private readonly IDataProvider<string> _dataProvider;
 
-        private Func<Optional<SecureString>> AuthenticationRequestor { get; set; } = () => MiscTools.PasswordDialog("", false);
+        private Func<Optional<SecureString>> AuthenticationRequestor { get; set; } = () => MiscToolsGui.PasswordDialog("", false);
 
         public SqlConnectionsLoader(
             IDeserializer<string, IEnumerable<LocalConnectionPropertiesModel>> localConnectionPropertiesDeserializer,

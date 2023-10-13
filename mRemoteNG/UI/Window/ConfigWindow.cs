@@ -345,7 +345,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(
+                RuntimeCommon.MessageCollector.AddMessage(
                     MessageClass.ErrorMsg,
                     Language.ConfigPropertyGridObjectFailed + Environment.NewLine +
                     ex.Message, true);
@@ -430,7 +430,7 @@ namespace mRemoteNG.UI.Window
 
                 if (toolStrip == null)
                 {
-                    Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                    RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                         Language.CouldNotFindToolStripInFilteredPropertyGrid, true);
                     return;
                 }
@@ -453,7 +453,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     Language.ConfigUiLoadFailed + Environment.NewLine + ex.Message,
                                                     true);
             }
@@ -490,7 +490,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     Language.ConfigPropertyGridValueFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
@@ -553,7 +553,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     Language.ConfigPropertyGridButtonIconClickFailed +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -583,7 +583,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     Language.ConfigPropertyGridMenuClickFailed +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -659,7 +659,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     Language.ConfigPropertyGridSetHostStatusFailed +
                                                     Environment.NewLine + ex.Message, true);
             }
@@ -681,7 +681,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("UI.Window.Config.propertyGridContextMenu_Opening() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("UI.Window.Config.propertyGridContextMenu_Opening() failed.", ex);
             }
         }
 
@@ -698,7 +698,7 @@ namespace mRemoteNG.UI.Window
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("UI.Window.Config.propertyGridContextMenuReset_Click() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("UI.Window.Config.propertyGridContextMenuReset_Click() failed.", ex);
             }
         }
 

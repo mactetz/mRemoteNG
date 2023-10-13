@@ -523,7 +523,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "ShowHideMenuItems (UI.Controls.ConnectionContextMenu) failed",
                                                                 ex);
             }
@@ -692,7 +692,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "cMenTreeTools_DropDownOpening failed (UI.Window.ConnectionTreeWindow)",
                                                                 ex);
             }
@@ -816,7 +816,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "DisconnectConnection (UI.Window.ConnectionTreeWindow) failed",
                                                                 ex);
             }
@@ -839,7 +839,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "SSHTransferFile (UI.Window.ConnectionTreeWindow) failed",
                                                                 ex);
             }
@@ -959,7 +959,7 @@ namespace mRemoteNG.UI.Controls
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 "cMenTreeToolsExternalAppsEntry_Click failed (UI.Window.ConnectionTreeWindow)",
                                                                 ex);
             }

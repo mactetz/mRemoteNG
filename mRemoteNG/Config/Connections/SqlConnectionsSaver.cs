@@ -44,13 +44,13 @@ namespace mRemoteNG.Config.Connections
 
             if (PropertyIsLocalOnly(propertyNameTrigger))
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, $"Property {propertyNameTrigger} is local only. Not saving to database.");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg, $"Property {propertyNameTrigger} is local only. Not saving to database.");
                 return;
             }
 
             if (SqlUserIsReadOnly())
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Trying to save connection tree but the SQL read only checkbox is checked, aborting!");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, "Trying to save connection tree but the SQL read only checkbox is checked, aborting!");
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace mRemoteNG.Config.Connections
 
                 if (!databaseVersionVerifier.VerifyDatabaseVersion(metaData.ConfVersion))
                 {
-                    Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, Language.ErrorConnectionListSaveFailed);
+                    RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, Language.ErrorConnectionListSaveFailed);
                     return;
                 }
 
@@ -80,8 +80,7 @@ namespace mRemoteNG.Config.Connections
                 UpdateUpdatesTable(dbConnector);
 
             }
-
-            Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, "Saved connections to database");
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg, "Saved connections to database");
         }
 
         /// <summary>
@@ -111,7 +110,7 @@ namespace mRemoteNG.Config.Connections
 
             var serializedProperties = _localPropertiesSerializer.Serialize(a);
             _dataProvider.Save(serializedProperties);
-            Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, "Saved local connection properties");
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg, "Saved local connection properties");
         }
 
         private void UpdateRootNodeTable(RootNodeInfo rootTreeNode, IDatabaseConnector databaseConnector)
@@ -150,7 +149,7 @@ namespace mRemoteNG.Config.Connections
             }
             else
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"UpdateRootNodeTable: rootTreeNode was null. Could not insert!");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, $"UpdateRootNodeTable: rootTreeNode was null. Could not insert!");
             }
         }
 
@@ -173,7 +172,7 @@ namespace mRemoteNG.Config.Connections
             // TODO: use transaction
             var dbQuery = databaseConnector.DbCommand("TRUNCATE TABLE tblUpdate");
             dbQuery.ExecuteNonQuery();
-            dbQuery = databaseConnector.DbCommand("INSERT INTO tblUpdate (LastUpdate) VALUES('" + MiscTools.DBDate(DateTime.Now.ToUniversalTime()) + "')");
+            dbQuery = databaseConnector.DbCommand("INSERT INTO tblUpdate (LastUpdate) VALUES('" + MiscToolsDatabase.DBDate(DateTime.Now.ToUniversalTime(), Properties.OptionsDBsPage.Default.SQLServerType) + "')");
             dbQuery.ExecuteNonQuery();
         }
 

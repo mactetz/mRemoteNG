@@ -46,7 +46,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.SettingsCouldNotBeSavedOrTrayDispose, ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(Language.SettingsCouldNotBeSavedOrTrayDispose, ex);
             }
         }
 
@@ -115,7 +115,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("The update could not be started.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("The update could not be started.", ex);
             }
         }
 

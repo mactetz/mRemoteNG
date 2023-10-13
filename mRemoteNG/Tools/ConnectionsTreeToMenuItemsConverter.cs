@@ -32,7 +32,7 @@ namespace mRemoteNG.Tools
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("frmMain.AddNodeToMenu() failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("frmMain.AddNodeToMenu() failed", ex);
             }
 
             return dropDownList;

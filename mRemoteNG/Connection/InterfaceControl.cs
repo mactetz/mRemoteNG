@@ -35,7 +35,7 @@ namespace mRemoteNG.Connection
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     "Couldn\'t create new InterfaceControl" + Environment.NewLine +
                                                     ex.Message);
             }

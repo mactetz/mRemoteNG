@@ -25,7 +25,7 @@ namespace mRemoteNG.UI.Tabs
             {
                 currentTab = value;
                 findCurrentPanel();
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.DebugMsg, "Tab got focused: " + currentTab.TabText);
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.DebugMsg, "Tab got focused: " + currentTab.TabText);
             }
         }
 
@@ -49,7 +49,7 @@ namespace mRemoteNG.UI.Tabs
             set
             {
                 currentPanel = value;
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.DebugMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.DebugMsg,
                                                     "Panel got focused: " + currentPanel.TabText);
             }
         }

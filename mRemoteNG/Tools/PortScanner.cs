@@ -115,7 +115,7 @@ namespace mRemoteNG.Tools
             try
             {
                 _hostCount = 0;
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, $"Tools.PortScan: Starting scan of {_ipAddresses.Count} hosts...", true);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg, $"Tools.PortScan: Starting scan of {_ipAddresses.Count} hosts...", true);
                 foreach (var ipAddress in _ipAddresses)
                 {
                     RaiseBeginHostScanEvent(ipAddress);
@@ -130,13 +130,13 @@ namespace mRemoteNG.Tools
                     }
                     catch (Exception ex)
                     {
-                        Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, $"Tools.PortScan: Ping failed for {ipAddress} {Environment.NewLine} {ex.Message}", true);
+                        RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, $"Tools.PortScan: Ping failed for {ipAddress} {Environment.NewLine} {ex.Message}", true);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, $"StartScanBG failed (Tools.PortScan) {Environment.NewLine} {ex.Message}", true);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, $"StartScanBG failed (Tools.PortScan) {Environment.NewLine} {ex.Message}", true);
             }
         }
 
@@ -152,15 +152,14 @@ namespace mRemoteNG.Tools
             var ip = e.UserState.ToString();
             var scanHost = new ScanHost(ip);
             _hostCount++;
-
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                 $"Tools.PortScan: Scanning {_hostCount} of {_ipAddresses.Count} hosts: {scanHost.HostIp}",
                                                 true);
 
 
             if (e.Cancelled)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                     $"Tools.PortScan: CANCELLED host: {scanHost.HostIp}", true);
                 // cleanup
                 p.PingCompleted -= PingSender_PingCompleted;
@@ -170,7 +169,7 @@ namespace mRemoteNG.Tools
 
             if (e.Error != null)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                     $"Ping failed to {e.UserState} {Environment.NewLine} {e.Error.Message}",
                                                     true);
                 scanHost.ClosedPorts.AddRange(_ports);
@@ -185,7 +184,7 @@ namespace mRemoteNG.Tools
                 }
                 catch (Exception dnsex)
                 {
-                    Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+                    RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                         $"Tools.PortScan: Could not resolve {scanHost.HostIp} {Environment.NewLine} {dnsex.Message}",
                                                         true);
                 }
@@ -243,7 +242,7 @@ namespace mRemoteNG.Tools
             }
             else if (e.Reply.Status != IPStatus.Success)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                     $"Ping did not complete to {e.UserState} : {e.Reply.Status}", true);
                 scanHost.ClosedPorts.AddRange(_ports);
                 scanHost.SetAllProtocols(false);
@@ -254,7 +253,7 @@ namespace mRemoteNG.Tools
             p.Dispose();
 
             var h = string.IsNullOrEmpty(scanHost.HostName) ? "HostNameNotFound" : scanHost.HostName;
-            Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg,
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.InformationMsg,
                                                 $"Tools.PortScan: Scan of {scanHost.HostIp} ({h}) complete.", true);
 
             _scannedHosts.Add(scanHost);

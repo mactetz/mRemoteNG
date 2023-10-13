@@ -54,7 +54,7 @@ namespace mRemoteNG.Config.Settings
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace("SaveExternalAppsToXML failed", ex);
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace("SaveExternalAppsToXML failed", ex);
             }
         }
     }

@@ -142,7 +142,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             {
                 MessageBox.Show(Language.ErrorCouldNotLaunchPutty, Application.ProductName,
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                Runtime.MessageCollector.AddExceptionMessage(Language.ErrorCouldNotLaunchPutty, ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage(Language.ErrorCouldNotLaunchPutty, ex);
             }
         }
 

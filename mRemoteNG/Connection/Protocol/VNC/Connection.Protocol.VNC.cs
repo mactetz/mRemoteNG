@@ -47,7 +47,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     Language.VncSetPropsFailed + Environment.NewLine + ex.Message,
                                                     true);
                 return false;
@@ -64,7 +64,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     Language.ConnectionOpenFailed + Environment.NewLine +
                                                     ex.Message);
                 return false;
@@ -81,7 +81,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     Language.VncConnectionDisconnectFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
@@ -104,7 +104,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     Language.VncSendSpecialKeysFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
@@ -128,7 +128,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     Language.VncRefreshFailed + Environment.NewLine + ex.Message,
                                                     true);
             }
@@ -152,7 +152,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
                                                     Language.VncSetEventHandlersFailed + Environment.NewLine +
                                                     ex.Message, true);
             }

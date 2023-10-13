@@ -104,7 +104,7 @@ namespace mRemoteNG.UI
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(
+                RuntimeCommon.MessageCollector.AddExceptionStackTrace(
                                                                 $"Unable to fill the image list of type {nameof(StatusImageList)}",
                                                                 ex);
             }

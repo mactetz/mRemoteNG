@@ -16,12 +16,12 @@ namespace mRemoteNG.Config.Import
         {
             if (string.IsNullOrEmpty(filePath))
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, "Unable to import file. File path is null.");
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg, "Unable to import file. File path is null.");
                 return;
             }
 
             if (!File.Exists(filePath))
-                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg,
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.ErrorMsg,
                                                     $"Unable to import file. File does not exist. Path: {filePath}");
 
             var dataProvider = new FileDataProvider(filePath);

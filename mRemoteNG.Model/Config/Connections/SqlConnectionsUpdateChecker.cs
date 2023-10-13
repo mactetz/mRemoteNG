@@ -4,9 +4,13 @@ using System.Data.Common;
 using System.Runtime.Versioning;
 using System.Threading;
 using mRemoteNG.App;
+//using mRemoteNG.App;
 using mRemoteNG.Config.DatabaseConnectors;
 using mRemoteNG.Messages;
-using mRemoteNG.Security.SymmetricEncryption;
+//using mRemoteNG.Messages;
+using mRemoteNG.Model.Config;
+using mRemoteNG.Security;
+//using mRemoteNG.Security.SymmetricEncryption;
 
 namespace mRemoteNG.Config.Connections.Multiuser
 {
@@ -15,22 +19,24 @@ namespace mRemoteNG.Config.Connections.Multiuser
     {
         private readonly IDatabaseConnector _dbConnector;
         private readonly DbCommand _dbQuery;
-        private DateTime LastUpdateTime => Runtime.ConnectionsService.LastSqlUpdate;
+        private DateTime LastUpdateTime; // => Runtime.ConnectionsService.LastSqlUpdate;
         private DateTime _lastDatabaseUpdateTime;
 
 
-        public SqlConnectionsUpdateChecker()
+        public SqlConnectionsUpdateChecker(ICryptographyProvider cryptographyProvider, DateTime LastUpdatedTime, DBConnectionSettingsDTO connectionSettingsDTO)
         {
-            var sqlType = Properties.OptionsDBsPage.Default.SQLServerType;
-            var sqlHost = Properties.OptionsDBsPage.Default.SQLHost;
-            var sqlCatalog = Properties.OptionsDBsPage.Default.SQLDatabaseName;
-            var sqlUsername = Properties.OptionsDBsPage.Default.SQLUser;
-            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
-            var sqlPassword = cryptographyProvider.Decrypt(Properties.OptionsDBsPage.Default.SQLPass, Runtime.EncryptionKey);
+            this.LastUpdateTime = LastUpdatedTime;
+            var sqlType = connectionSettingsDTO.sqlType;
+            var sqlHost = connectionSettingsDTO.sqlHost;
+            var sqlCatalog = connectionSettingsDTO.sqlCatalog;
+            var sqlUsername = connectionSettingsDTO.sqlUsername;
+//            var cryptographyProvider = new LegacyRijndaelCryptographyProvider();
+            var sqlPassword = cryptographyProvider.Decrypt(connectionSettingsDTO.sqlPasswordCrypted, connectionSettingsDTO.encryptionKey);
 
             _dbConnector = DatabaseConnectorFactory.DatabaseConnector(sqlType, sqlHost, sqlCatalog, sqlUsername, sqlPassword);
             _dbQuery = _dbConnector.DbCommand("SELECT * FROM tblUpdate");
             _lastDatabaseUpdateTime = default(DateTime);
+            this.LastUpdateTime = LastUpdatedTime;
         }
 
         public bool IsUpdateAvailable()
@@ -59,7 +65,7 @@ namespace mRemoteNG.Config.Connections.Multiuser
             }
             catch (Exception e)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, $"Unable to connect to SQL DB to check for updates.{Environment.NewLine}{e.Message}", true);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, $"Unable to connect to SQL DB to check for updates.{Environment.NewLine}{e.Message}", true);
             }
         }
 
@@ -92,7 +98,7 @@ namespace mRemoteNG.Config.Connections.Multiuser
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddMessage(MessageClass.WarningMsg, "Error executing SQL query to get updates from the DB." + Environment.NewLine + ex.Message, true);
+                RuntimeCommon.MessageCollector.AddMessage(MessageClass.WarningMsg, "Error executing SQL query to get updates from the DB." + Environment.NewLine + ex.Message, true);
             }
 
             _lastDatabaseUpdateTime = lastUpdateInDb;
@@ -120,7 +126,7 @@ namespace mRemoteNG.Config.Connections.Multiuser
 
         private void RaiseConnectionsUpdateAvailableEvent()
         {
-            Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, "Remote connection update is available");
+            RuntimeCommon.MessageCollector.AddMessage(MessageClass.DebugMsg, "Remote connection update is available");
             var args = new ConnectionsUpdateAvailableEventArgs(_dbConnector, _lastDatabaseUpdateTime);
             ConnectionsUpdateAvailable?.Invoke(this, args);
         }

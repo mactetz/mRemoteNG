@@ -49,7 +49,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("Unable to import file.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("Unable to import file.", ex);
             }
         }
 
@@ -80,7 +80,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("App.Import.ImportFromRemoteDesktopManagerCsv() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("App.Import.ImportFromRemoteDesktopManagerCsv() failed.", ex);
             }
         }
 
@@ -111,7 +111,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("App.Import.ImportFromRemoteDesktopConnectionManager() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("App.Import.ImportFromRemoteDesktopConnectionManager() failed.", ex);
             }
         }
 
@@ -133,7 +133,7 @@ namespace mRemoteNG.App
 			        catch (Exception ex)
 			        {
 				        exceptionAction?.Invoke(fileName);
-				        Runtime.MessageCollector.AddExceptionMessage($"Error occurred while importing file '{fileName}'.", ex);
+                        RuntimeCommon.MessageCollector.AddExceptionMessage($"Error occurred while importing file '{fileName}'.", ex);
 			        }
 		        }
 	        }
@@ -152,7 +152,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("App.Import.ImportFromActiveDirectory() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("App.Import.ImportFromActiveDirectory() failed.", ex);
             }
         }
 
@@ -170,7 +170,7 @@ namespace mRemoteNG.App
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage("App.Import.ImportFromPortScan() failed.", ex);
+                RuntimeCommon.MessageCollector.AddExceptionMessage("App.Import.ImportFromPortScan() failed.", ex);
             }
         }
 
